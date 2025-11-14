@@ -1,18 +1,87 @@
-# React + Vite
+# Book Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based web application that allows users to search, browse, and save their favorite books using the Google Books API. Built with **Vite** for fast development, **Bootstrap** for styling, and supports pagination, sorting, and local storage of favorite books.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Search for books by keyword using the Google Books API.  
+- View book details including title, author, publisher, publication date, description, categories, page count, and rating.  
+- Sort search results by newest or oldest.  
+- Pagination for navigating through multiple search result pages.  
+- Save favorite books to local storage for later reference.  
+- Responsive UI using Bootstrap for desktop and mobile.  
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## Installation
 
-## Expanding the ESLint configuration
+1. Clone the repository:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+git clone https://github.com/tiensoare/book-library.git
+cd book-library
+````
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Add your Google Books API key in `Home.jsx` (replace the placeholder key if needed):
+
+```javascript
+const api_call = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchField}&startIndex=${startIndex}&maxResults=40&key=YOUR_API_KEY`);
+```
+
+---
+
+## Running the App
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open your browser at `http://localhost:5173` (or the URL shown in the terminal).
+
+The app supports **hot module replacement**, so changes you make in `src/` will update automatically.
+
+---
+
+## Building for Production
+
+```bash
+npm run build
+```
+
+This generates a `dist/` folder ready for deployment.
+
+---
+
+## Usage
+
+* Type a keyword in the search input and press enter or click the search button.
+* Use the dropdown to sort results by **Newest** or **Oldest**.
+* Click page numbers at the bottom to navigate through results.
+* Click the heart icon on a book to save it to your **My Books** list.
+
+---
+
+## Dependencies
+
+* React 18+
+* Vite 4+
+* Bootstrap 5
+* react-router-dom (for routing)
+* styled-components (for styling reusable components)
+* react-icons (for icons)
+
+---
+
+## License
+
+This project is licensed under the MIT License.
